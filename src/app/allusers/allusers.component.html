@@ -1,0 +1,46 @@
+<div class="container">
+  <h2>All Users</h2>
+  @if(errorMessage){
+  <div class="error">
+    <span>{{ errorMessage }}</span>
+  </div>
+  }@else { @if (users.length > 0) {
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>National Code</th>
+        <th>Mobile Number</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user.nationalCode) {
+      <tr>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.role === "1" || user.role === 1 ? "Admin" : "Normal" }}</td>
+        <td>{{ user.nationalCode }}</td>
+        <td>{{ user.mobile }}</td>
+        <td>
+          <button
+            [disabled]="currentUserRole === '0'"
+            class="edit-btn"
+            [routerLink]="'/edit-user/' + user.id"
+          >
+            Edit
+          </button>
+          <button [disabled]="currentUserRole === '0'" class="delete-btn">
+            Delete
+          </button>
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  } @else {
+  <h2>No user</h2>
+  }}
+</div>

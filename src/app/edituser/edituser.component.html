@@ -1,0 +1,33 @@
+<form [formGroup]="userForm">
+  <h2>Edit User</h2>
+  <label>First Name:</label>
+  <input formControlName="firstName" type="text" required />
+
+  <label>Last Name:</label>
+  <input formControlName="lastName" type="text" required />
+
+  <label>Role:</label>
+  <select formControlName="role">
+    <option value="0">Normal</option>
+    <option value="1">Admin</option>
+  </select>
+
+  <label>National Code:</label>
+  <input formControlName="nationalCode" type="text" required />
+
+  <label>Mobile Number:</label>
+  <input formControlName="mobile" type="text" required />
+
+  <label>Username:</label>
+  <input formControlName="username" type="text" required />
+
+  <label>Password:</label>
+  <input formControlName="password" type="password" required />
+  @if(errorMessage){
+  <div class="error">
+    <span>{{ errorMessage }}</span>
+  </div>
+  }
+
+  <button (click)="OnSubmit()">Submit</button>
+</form>

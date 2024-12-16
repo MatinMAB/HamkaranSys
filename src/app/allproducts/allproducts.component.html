@@ -1,0 +1,26 @@
+<div class="product-list-container">
+  <h2>All Products</h2>
+  @if(errorMessage){
+  <div class="error">
+    <span>{{ errorMessage }}</span>
+  </div>
+  } @else { @if (products.length > 0) {
+  <div class="product-grid">
+    @for (product of products; track product.code) {
+    <div class="product-card">
+      <h3>{{ product.name }}</h3>
+      <p><strong>Code:</strong> {{ product.code }}</p>
+      <p><strong>Weight:</strong> {{ product.weight }} kg</p>
+      <div class="actions">
+        <button class="edit-btn" [routerLink]="'/edit-product/' + product.id">
+          Edit
+        </button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+    }
+  </div>
+  }@else {
+  <h2>No product</h2>
+  }}
+</div>

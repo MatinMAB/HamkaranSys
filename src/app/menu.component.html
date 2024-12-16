@@ -1,0 +1,19 @@
+<div class="container">
+  <ul>
+    <div class="menu-items">
+      <li [routerLink]="'/all-users'">All Users</li>
+      <li [routerLink]="'/add-user'">Add User</li>
+      <li [routerLink]="'/all-products'">All Products</li>
+      <li [routerLink]="'/add-product'">Add Product</li>
+    </div>
+    @if(isLoggedIn){
+
+    <li class="login-btn" (click)="logout()">
+      Welcome {{ currentUser.username }}, Logout?
+    </li>
+    } @else {
+    <li class="login-btn" [routerLink]="'/login'">Login</li>
+
+    }
+  </ul>
+</div>

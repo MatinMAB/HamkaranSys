@@ -1,0 +1,21 @@
+<form [formGroup]="productForm">
+  <h2>Edit Product</h2>
+  <label>Name:</label>
+  <input formControlName="name" type="text" required />
+
+  <label>Code:</label>
+  <input formControlName="code" type="text" required />
+
+  <label>Weight:</label>
+  <input
+    formControlName="weight"
+    type="text"
+    required
+  />
+  @if(errorMessage){
+  <div class="error">
+    <span>{{ errorMessage }}</span>
+  </div>
+  }
+  <button (click)="OnSubmit()">Submit</button>
+</form>
